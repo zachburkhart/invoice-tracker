@@ -1,0 +1,9 @@
+{{!-- include html here that just shows the expenses, which populate on the {{{ body }}} of main.handlebars --}}
+
+<ol class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ol>
