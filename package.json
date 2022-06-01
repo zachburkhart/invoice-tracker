@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/zachburkhart/invoice-tracker.git"
   },
-<<<<<<< HEAD
-=======
   "keywords": [],
->>>>>>> develop
   "author": "",
   "license": "ISC",
   "bugs": {

@@ -3,8 +3,6 @@ const sequelize = require('../config/connection');
 
 class Expense extends Model {}
 
-<<<<<<< HEAD
-=======
 Expense.init(
     {
         id: {
@@ -44,5 +42,4 @@ Expense.init(
     modelName: 'expense'
     }
 )
->>>>>>> develop
 module.exports = Expense;
