@@ -1,5 +1,50 @@
 
 {{!-- dashboard --}}
 
+<section>
+    <h2>Add New Expense</h2>
 
+    <form class="new-expense-form">
+        <div>
+            <label for="expense-title">Title</label>
+            <input type="text" id="expense-title" name="expense-title">
+        </div>
+        <div>
+            <label for="expense-description">Description</label>
+            <input type="text" id="expense-description" name="expense-description">
+        </div>
+        <div>
+            <label for="expense-due">Due Date</label>
+            <input type="text" id="expense-due" name="expense-due" placeholder="MM/DD/YYYY">
+        </div>
+        <div>
+            <label for="expense-amount">Amount</label>
+            <input type="text" id="expense-amount" name="expense-amount">
+        </div>
+        <button type="submit" class="btn">Add</button>
+    </form>
+</section>
+<section>
+    <h2>Current Expenses</h2>
+    {{!-- #if loggedIn --}}
+    <div class="container">
+        {{#each expense}}
+        <div class="row">
+            <span class="col-2">{{expense.title}}</span>
+            <span class="col-4">{{expense.description}}</span>
+            <span class="col-3">{{expense.date_due}}</span>
+            <span class="col-3">{{expense.expense_value}}</span>
+        </div>
+        {{/each}}
+                <div class="row">
+            <span class="col-2">Dummy Title</span>
+            <span class="col-4">Dummy Description, adding more text so we can get a good idea of what happens when it exists</span>
+            <span class="col-3">11/12/1314</span>
+            <span class="col-3">100</span>
+        </div>
+    </div>
+    {{!-- /if --}}
+</section>
+
+<script src="/javascript/add-expense.js"></script>
 
