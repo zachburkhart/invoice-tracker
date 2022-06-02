@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //const sequelize = require('../config/connection');
-const { Expense } = require('../models');
+const { Expense, User } = require('../models');
 const authorization = require('../utils/auth');
 
 
@@ -17,7 +17,12 @@ router.get('/', authorization, (req,res)=>{
               'expense_value',
               'date_due',
           ],    
-
+          include: [
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ]
         })
         .then(dbExpenseData => {
             const expenses = dbExpenseData.map(expense => expense.get({ plain: true }));

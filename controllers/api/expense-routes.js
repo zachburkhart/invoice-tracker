@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Expense } = require('../../models');
+const { Expense, User } = require('../../models');
 //const authorization = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -14,6 +14,12 @@ router.get('/', (req, res) => {
             'expense_value',
             'date_due'
         ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ],
         order:[['date_due', 'DESC']]
     })
 })
@@ -23,7 +29,8 @@ router.post('/', (req, res) => {
         title:req.body.title,
         description:req.body.description,
         expense_value:req.body.expense_value,
-        date_due:req.body.date_due
+        date_due:req.body.date_due,
+        user_id: req.session.user_id
     })
     .then(expenseData => {
             res.json(expenseData);
