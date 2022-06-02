@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <nav>
-
-    </nav>
-
-    {{{ body }}}
-    
+    <header>
+        <h1>Invoice Tracker</h1>
+        <nav>
+            {{#if loggedIn}}
+            <button id="logout" class="btn btn-link">Logout</button>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+        Created by: Ryan, Josh, Zach, Mohamed
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
 </body>
 </html>
