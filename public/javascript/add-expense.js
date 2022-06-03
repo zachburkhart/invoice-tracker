@@ -6,23 +6,25 @@ async function newExpenseHandler(event) {
     const expense_value = document.querySelector('input[name="expense-amount"]').value;
     const date_due = document.querySelector('input[name="expense-due"]').value;
 
-    const response = await fetch('/api/expense', {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            description,
-            expense_value,
-            date_due
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    if (title && description && expense_value && date_due) {
+        const response = await fetch('/api/expense', {
+            method: 'POST',
+            body: JSON.stringify({
+                title,
+                description,
+                expense_value,
+                date_due
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+        }
     }
 }
 

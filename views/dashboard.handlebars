@@ -27,10 +27,11 @@
     <div class="container">
         {{#each expenses as |expense|}}
         <div class="row">
-            <span name="expense-title" class="col-2">{{expense.title}}</span>
-            <span name="expense-description" class="col-4">{{expense.description}}</span>
-            <span name="expense-date-due" class="col-3">{{expense.date_due}}</span>
-            <span name="expense-value" class="col-3">{{expense.expense_value}}</span>
+            <span name="expense-title" class="m-2 col-2">{{expense.title}}</span>
+            <span name="expense-description" class="m-2 col-3">{{expense.description}}</span>
+            <span name="expense-date-due" class="m-2 col-2">{{format_date date_due}}</span>
+            <span name="expense-value" class="m-2 col-2">${{expense.expense_value}}</span>
+            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{expense.id}}">Delete</button>
         </div>
         {{/each}}
                 {{!-- <div class="row">
@@ -44,4 +45,7 @@
 </section>
 
 <script src="/javascript/add-expense.js"></script>
+    {{#if expenses.length}}
+<script src="/javascript/delete-expense.js"></script>
+{{/if}}
 

@@ -20,7 +20,7 @@ Expense.init(
             allowNull: true,
         },
         expense_value: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(6,2),
             allowNull: false,
         },
         date_due: {
