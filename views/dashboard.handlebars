@@ -23,14 +23,22 @@
 </section>
 <section>
     <h2>Current Expenses</h2>
+   <div class="container">
+        <div class="row">
+            <span name="expense-title" class="m-2 col-2">Title</span>
+            <span name="expense-description" class="m-2 col-3">Description</span>
+            <span name="expense-date-due" class="m-2 col-1">Due</span>
+            <span name="expense-value" class="m-2 col-1">Value</span>
+        </div>     
     {{#if expenses.length}}
     <div class="container">
         {{#each expenses as |expense|}}
         <div class="row">
             <span name="expense-title" class="m-2 col-2">{{expense.title}}</span>
             <span name="expense-description" class="m-2 col-3">{{expense.description}}</span>
-            <span name="expense-date-due" class="m-2 col-2">{{format_date date_due}}</span>
-            <span name="expense-value" class="m-2 col-2">${{expense.expense_value}}</span>
+            <span name="expense-date-due" class="m-2 col-1">{{format_date date_due}}</span>
+            <span name="expense-value" class="m-2 col-1">${{expense.expense_value}}</span>
+            <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{expense.id}}">Paid</button>
             <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{expense.id}}">Delete</button>
         </div>
         {{/each}}
@@ -47,5 +55,6 @@
 <script src="/javascript/add-expense.js"></script>
     {{#if expenses.length}}
 <script src="/javascript/delete-expense.js"></script>
+<script src="/javascript/paid-expense.js"></script>
 {{/if}}
 

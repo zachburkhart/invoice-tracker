@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
         where:{
             user_id: req.session.user_id
             },
+        order:[['date_due', 'DESC']],
         attributes:[
             'id',
             'title',
@@ -19,8 +20,7 @@ router.get('/', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
-        ],
-        order:[['date_due', 'DESC']]
+        ]
     })
     .then(expenseData => {
         res.json(expenseData);
