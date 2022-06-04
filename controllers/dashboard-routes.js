@@ -31,7 +31,8 @@ router.get('/', authorization, (req,res)=>{
         const paidExpenses = dbExpenseData.map(expense => expense.get({ plain: true })).filter(e => e.is_paid === "2");
         var totalDue = calculateTotalDue(expenses);
         var totalPaid = calculateTotalPaid(paidExpenses);
-        res.render('dashboard', { expenses, totalDue, paidExpenses, totalPaid, loggedIn: true });
+        res.render('dashboard', { expenses, totalDue, paidExpenses, totalPaid, success: true, errors: [], loggedIn: true });
+        req.session.errors = null;
       })
       .catch(err => {
         console.log(err);
@@ -45,7 +46,7 @@ function calculateTotalDue(expenses) {
       runningTotal += Number(expenses[i].expense_value);
   };
 
-  return runningTotal;
+  return runningTotal.toFixed(2);
 };
 
 function calculateTotalPaid(expenses) {
@@ -54,29 +55,29 @@ function calculateTotalPaid(expenses) {
       runningTotal += Number(expenses[i].expense_value);
   };
 
-  return runningTotal;
+  return runningTotal.toFixed(2);
 };
 
-      router.get('/edit/:id', authorization, (req, res) => {
-        Expense.findByPk(req.params.id, {
-          attributes: [
-            'id',
-            'title',
-            'description',
-            'expense_value',
-            'date_due',
-        ],    
-    })
-        .then(dbExpenseData => {
-            const expenses = dbExpenseData.map(expense => expense.get({ plain: true }));
-            res.render('edit-expense', { expenses, loggedIn: true });
-          })
-          .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-          });
+  router.get('/edit/:id', authorization, (req, res) => {
+    Expense.findByPk(req.params.id, {
+      attributes: [
+        'id',
+        'title',
+        'description',
+        'expense_value',
+        'date_due',
+    ],    
+})
+    .then(dbExpenseData => {
+        const expenses = dbExpenseData.map(expense => expense.get({ plain: true }));
+        res.render('edit-expense', { expenses, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
       });
-      
+  });
+  
 
 
 module.exports = router;

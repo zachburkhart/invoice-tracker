@@ -20,6 +20,21 @@
         </div>
         <button type="submit" class="btn">Add</button>
     </form>
+    {{#if success}}
+        <section class="success">
+            <h2>Expense successfully added!</h2>
+        </section>
+        {{else}}
+            {{#if errors }}
+                <section class="errors">
+                    <ul>
+                        {{#each errors}}
+                            <li>{{this.msg}}</li>
+                        {{/each}}
+                    </ul>
+                </section>
+            {{/if}}
+    {{/if}}
 </section>
 <section>
     <h2>Current Expenses</h2>
@@ -63,8 +78,8 @@
             <span name="paid-expense-description" class="m-2 col-3">{{paidExpense.description}}</span>
             <span name="paid-expense-date-due" class="m-2 col-1">{{format_date date_paid}}</span>
             <span name="paid-expense-value" class="m-2 col-1">${{paidExpense.expense_value}}</span>
-            {{!-- <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{paidExpense.id}}" data="{{paidExpense}}">Paid</button>
-            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{paidExpense.id}}">Delete</button> --}}
+            <button type="button" class="m-2 col-1 btn btn-danger btn-sm notpaid-post-btn" id="{{paidExpense.id}}" data="{{paidExpense}}">Not Paid</button>
+            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{paidExpense.id}}">Delete</button>
         </div>
         {{/each}}
         <h3>Total Paid: ${{totalPaid}}</h3>
@@ -77,3 +92,7 @@
 <script src="/javascript/paid-expense.js"></script>
 {{/if}}
 
+{{#if paidExpenses.length}}
+<script src="/javascript/delete-expense.js"></script>
+<script src="/javascript/not-paid-expense.js"></script>
+{{/if}}

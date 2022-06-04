@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const { Expense, User } = require('../../models');
+const { body, validationResult } = require('express-validator');
 const authorization = require('../../utils/auth');
+const dayjs = require('dayjs');
+
+
 
 router.get('/', (req, res) => {
     Expense.findAll({
@@ -109,7 +113,26 @@ router.delete('/:id', authorization, (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', 
+
+    body('title', 'Please enter a valid title').isLength({min: 1}),
+    body('description', 'Please enter description').isLength({min: 1}),
+    body('expense_value', 'Please enter a valid expense').isCurrency(),
+    body('date_due', 'Please enter a valid date').custom((value, { req }) => {
+        if (dayjs(value, "MM/DD/YYYY", true).isValid()) {
+          return true;
+        }
+        return false;
+      }),
+
+(req, res) => {
+
+    var errors = validationResult(req);
+    console.log(errors);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     Expense.create({
         title:req.body.title,
         description:req.body.description,
@@ -119,7 +142,7 @@ router.post('/', (req, res) => {
         is_paid: 1
     })
     .then(expenseData => {
-            res.json(expenseData);
+        res.json(expenseData);
     })
     .catch(err => {
         console.log(err);

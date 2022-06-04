@@ -5,9 +5,8 @@ async function newExpenseHandler(event) {
     const description = document.querySelector('input[name="expense-description"]').value;
     const expense_value = document.querySelector('input[name="expense-amount"]').value;
     const date_due = document.querySelector('input[name="expense-due"]').value;
-    const is_paid = ["1"];
+    const is_paid = "1";
 
-    if (title && description && expense_value && date_due) {
         const response = await fetch('/api/expense', {
             method: 'POST',
             body: JSON.stringify({
@@ -22,12 +21,19 @@ async function newExpenseHandler(event) {
             }
         });
 
+        console.log(response);
+
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            alert(response.statusText)
         }
-    }
+        
+        
+
+
+
+        
 }
 
 document.querySelector('.new-expense-form').addEventListener('submit', newExpenseHandler);
