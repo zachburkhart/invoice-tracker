@@ -33,7 +33,15 @@ Expense.init(
                 model: 'user',
                 key: 'id'
             }
-        }
+        },
+        is_paid: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        date_paid: {
+            type: DataTypes.DATE,
+            allowNull: true,
+        },
     },
     {
     sequelize,

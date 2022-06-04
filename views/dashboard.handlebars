@@ -38,22 +38,41 @@
             <span name="expense-description" class="m-2 col-3">{{expense.description}}</span>
             <span name="expense-date-due" class="m-2 col-1">{{format_date date_due}}</span>
             <span name="expense-value" class="m-2 col-1">${{expense.expense_value}}</span>
-            <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{expense.id}}">Paid</button>
+            <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{expense.id}}" data="{{expense}}">Paid</button>
             <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{expense.id}}">Delete</button>
         </div>
         {{/each}}
-                {{!-- <div class="row">
-            <span class="col-2">Dummy Title</span>
-            <span class="col-4">Dummy Description, adding more text so we can get a good idea of what happens when it exists</span>
-            <span class="col-3">11/12/1314</span>
-            <span class="col-3">100</span>
+        <h3>Total Due: ${{totalDue}}</h3>
+   {{/if}}
+</section>
+
+<section>
+    <h2>Paid Expenses</h2>
+   <div class="container">
+        <div class="row">
+            <span name="paid-expense-title" class="m-2 col-2">Title</span>
+            <span name="paid-expense-description" class="m-2 col-3">Description</span>
+            <span name="paid-expense-paid-date" class="m-2 col-1">Date Paid</span>
+            <span name="paid-expense-value" class="m-2 col-1">Value</span>
+        </div>     
+    {{#if paidExpenses.length}}
+    <div class="container">
+        {{#each paidExpenses as |paidExpense|}}
+        <div class="row">
+            <span name="paid-expense-title" class="m-2 col-2">{{paidExpense.title}}</span>
+            <span name="paid-expense-description" class="m-2 col-3">{{paidExpense.description}}</span>
+            <span name="paid-expense-date-due" class="m-2 col-1">{{format_date date_paid}}</span>
+            <span name="paid-expense-value" class="m-2 col-1">${{paidExpense.expense_value}}</span>
+            {{!-- <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{paidExpense.id}}" data="{{paidExpense}}">Paid</button>
+            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{paidExpense.id}}">Delete</button> --}}
         </div>
-    </div> --}}
+        {{/each}}
+        <h3>Total Paid: ${{totalPaid}}</h3>
    {{/if}}
 </section>
 
 <script src="/javascript/add-expense.js"></script>
-    {{#if expenses.length}}
+{{#if expenses.length}}
 <script src="/javascript/delete-expense.js"></script>
 <script src="/javascript/paid-expense.js"></script>
 {{/if}}

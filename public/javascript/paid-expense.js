@@ -1,15 +1,32 @@
-
 async function paidExpenseHandler(event) {
     event.preventDefault();
 
     const id = event.target.id;
-    console.log('post with ' + id + ' paid')
-    
+    var expense = event.target.attributes.data.value; 
+    var title = expense.title;
+    var description = expense.description;
+    var expense_value = expense.expense_value
+    var date_due = expense.date_due
+    var is_paid = 2;
+    var date_paid = Date.now();
+
     const response = await fetch(`/api/expense/${id}`, {
-        method: 'DELETE'
+        method: 'PUT',
+        body: JSON.stringify({
+            title,
+            description,
+            expense_value,
+            date_due,
+            is_paid,
+            date_paid
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 
     if (response.ok) {
+        console.log(response)
         document.location.replace('/dashboard/');
     } else {
         alert(response.statusText);

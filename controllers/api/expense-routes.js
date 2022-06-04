@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
             'title',
             'description',
             'expense_value',
-            'date_due'
+            'date_due',
+            'is_paid'
         ],
         include: [
             {
@@ -63,6 +64,31 @@ router.get('/:id', authorization, (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+    Expense.update(
+      {
+        is_paid: req.body.is_paid,
+        date_paid: req.body.date_paid
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+      .then(dbPostData => {
+        if (!dbPostData) {
+          res.status(404).json({ message: 'No expense found with this id' });
+          return;
+        }
+        res.json(dbPostData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 router.delete('/:id', authorization, (req, res) => {
     Expense.destroy({
         where: {
@@ -89,7 +115,8 @@ router.post('/', (req, res) => {
         description:req.body.description,
         expense_value:req.body.expense_value,
         date_due:req.body.date_due,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        is_paid: 1
     })
     .then(expenseData => {
             res.json(expenseData);

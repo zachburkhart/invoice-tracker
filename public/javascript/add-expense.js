@@ -5,6 +5,7 @@ async function newExpenseHandler(event) {
     const description = document.querySelector('input[name="expense-description"]').value;
     const expense_value = document.querySelector('input[name="expense-amount"]').value;
     const date_due = document.querySelector('input[name="expense-due"]').value;
+    const is_paid = ["1"];
 
     if (title && description && expense_value && date_due) {
         const response = await fetch('/api/expense', {
@@ -13,7 +14,8 @@ async function newExpenseHandler(event) {
                 title,
                 description,
                 expense_value,
-                date_due
+                date_due,
+                is_paid
             }),
             headers: {
                 'Content-Type': 'application/json'
