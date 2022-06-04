@@ -20,21 +20,6 @@
         </div>
         <button type="submit" class="btn">Add</button>
     </form>
-    {{#if success}}
-        <section class="success">
-            <h2>Expense successfully added!</h2>
-        </section>
-        {{else}}
-            {{#if errors }}
-                <section class="errors">
-                    <ul>
-                        {{#each errors}}
-                            <li>{{this.msg}}</li>
-                        {{/each}}
-                    </ul>
-                </section>
-            {{/if}}
-    {{/if}}
 </section>
 <section>
     <h2>Current Expenses</h2>

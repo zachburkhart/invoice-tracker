@@ -31,8 +31,7 @@ router.get('/', authorization, (req,res)=>{
         const paidExpenses = dbExpenseData.map(expense => expense.get({ plain: true })).filter(e => e.is_paid === "2");
         var totalDue = calculateTotalDue(expenses);
         var totalPaid = calculateTotalPaid(paidExpenses);
-        res.render('dashboard', { expenses, totalDue, paidExpenses, totalPaid, success: true, errors: [], loggedIn: true });
-        req.session.errors = null;
+        res.render('dashboard', { expenses, totalDue, paidExpenses, totalPaid, loggedIn: true });
       })
       .catch(err => {
         console.log(err);

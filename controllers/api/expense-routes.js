@@ -100,10 +100,6 @@ router.delete('/:id', authorization, (req, res) => {
         }
     })
     .then(dbExpenseData => {
-        if(!dbExpenseData) {
-            res.status(404).json({ message: 'No expense with this ID!' });
-            return;
-        }
         res.json(dbExpenseData);
     })
     .catch(err => {
