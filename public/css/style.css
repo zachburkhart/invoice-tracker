@@ -13,7 +13,8 @@
     display: flex; 
     justify-content: space-between; 
     padding: 1rem 2rem; 
-    background: #04AA6D; 
+    background: #04AA6D;
+    align-items: center;
   }
 
   nav a {
