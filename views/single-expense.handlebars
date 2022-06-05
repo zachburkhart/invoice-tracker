@@ -1,1 +1,23 @@
 {{!-- single expense  --}}
+
+{{> post-info post}}
+
+{{#if loggedIn}}
+<form class="post-form">
+  <div>
+    <textarea name="post-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add expense</button>
+    <button type="button" class="btn">add</button>
+  </div>
+</form>
+{{/if}}
+
+{{> expense post.expense}}
+
+{{#if loggedIn}}
+<script src="/javascript/add-expense.js"></script>
+<script src="/javascript/delete-expense.js"></script>
+{{/if}}

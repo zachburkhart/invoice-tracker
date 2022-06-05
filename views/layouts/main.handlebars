@@ -9,23 +9,38 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <div class="wrapper">
     <header>
-        <h1>Invoice Tracker</h1>
-        <nav>
-            {{#if loggedIn}}
-            <button id="logout" class="btn btn-link">Logout</button>
-            {{/if}}
-        </nav>
+      <nav>
+        
+      <h1>
+        <a href="/">Expenses Tracker</a>
+        <p>give every dollar a job </p>
+
+      </h1>
+     
+      <nav>
+        {{#if loggedIn}}
+        
+       <a class="btn" href="/dashboard">Dashboard</a>
+         <button id="logout" class="btn-2">logout</button>
+     
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
     </header>
     <main>
-        {{{ body }}}
-        <h3>Running Total (Paid): ${{expense.expense_value}}</h3>
+      {{{ body }}}
     </main>
     <footer>
-        Created by: Ryan, Josh, Zach, Mohamed
+      Created by: Ryan, Josh, Zach, Mohamed
     </footer>
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>

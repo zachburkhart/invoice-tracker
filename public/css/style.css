@@ -1,0 +1,94 @@
+
+*{
+    padding: 0;
+    margin: 0;
+  }
+ 
+  body {
+    font-family: Arial, Tahoma, Serif;
+    color: #263238;
+    padding: 1rem 2rem; 
+  }
+  nav {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 1rem 2rem; 
+    background: #04AA6D; 
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 1rem;
+    display: grid;
+  }
+
+  p{ 
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  h2{
+    padding-top: 20px;
+  }
+body, html {
+    border: 3px solid #f1f1f1;
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 40px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px ;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    background-color: #04AA6D;
+    color: white;
+    padding: 5px 25px 30px;
+  }
+    
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .btn {
+    width: auto;
+    background-color: #04AA6D;
+    color: white;
+    padding: 5px 25px ;
+  }
+ 
+
+  .btn:hover {
+    opacity: 0.8;
+    background-color: #04AA6D;
+  }
+  
+
+  footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    font-size: 110%;
+  }
+  
+
+
+  @media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  
+} 
+  }
