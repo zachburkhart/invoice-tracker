@@ -1,50 +1,77 @@
-# Invoice Tracker - Project 2
+## project-idea : Invoice Tracker!
 
-## Description
-This project is the fourteenth challenge of the coding bootcamp.
+* This is the second group project in CWRU's coding bootcamp.
 
-User Story: 
+## User Story
+  
+```
 
-Starting from scratch, this challenge required:
-*   GIVEN 
+```
+## Motivation :
+```
 
-        -WHEN 
-        -THEN 
 
+```
+  
+## Description 
+  
+``` 
+
+```
+
+  
 ## Table of Contents
-- [Description](#description)
+- [User Story](#user-story)
+- [Motivation](#Motivation)
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Tests](#tests)
-- [Questions](#questions)
-
-## Made Using:
-* Node.js
 
 ## Installation
-* 
+ 
+`npm install express sequelize mysql2`
 
-## Usage
-* 
+`npm install dotenv`
 
-## Contributing
-* 
+`npm install bcrypt`
 
-## License
-* MIT License
+`npm install express-handlebars`
 
-[Click here for more license info!](https://choosealicense.com/licenses/mit/)
+`npm install express-session`
 
-## Tests
-* 
-
-## Questions
-* 
-
-## Link to Project & Screenshot
+`npm install connect-session-sequelize`
 
 
+## Usage   
+  
+Run the following command at the root of your project and answer the prompted questions:
+
+`mysql -u root -p`
+
+Enter PW when promted
+
+`source db/schema.sql`
+
+`quit`
+
+`npm run seed`
+  
+`npm start`
+
+## Future Development Plans :
+<b>Future enhancements to this app include:</b>
+
+ ```
+ 
+ 
+ ```
+
+
+## Contribution
+<b>this project is made by :</b>
+- Rayan Podolski
+- Josh klein
+- zach Burkhart
+- Mohamed Behnas 
 
 
