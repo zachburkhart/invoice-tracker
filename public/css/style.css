@@ -48,14 +48,14 @@ body, html {
   button {
     background-color: #04AA6D;
     color: white;
-    padding: 14px 20px ;
+    
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: auto;
     background-color: #04AA6D;
     color: white;
-    padding: 5px 25px 30px;
+    padding: 5px 25px ;
   }
     
   button:hover {
