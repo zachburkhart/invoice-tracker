@@ -1,4 +1,4 @@
-# Invoice Tracker - Project 2
+# Expense Tracker - Group Project 2
 
  ## Description
  This project is the second group project of the CWRU coding bootcamp.
