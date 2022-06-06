@@ -69,6 +69,10 @@ body, html {
     color: white;
     padding: 5px 25px ;
   }
+
+  .padding {
+    margin-top: 5%;
+  }
  
 
   .btn:hover {
