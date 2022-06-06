@@ -1,77 +1,53 @@
-## project-idea : Invoice Tracker!
+# Invoice Tracker - Project 2
 
-* This is the second group project in CWRU's coding bootcamp.
+ ## Description
+ This project is the second group project of the CWRU coding bootcamp.
 
-## User Story
-  
-```
+ User Story: As someone who spends money, I want a way to keep track of my finances, so that I can avoid going into debt.
 
-```
-## Motivation :
-```
+ ## Table of Contents
+ - [Description](#description)
+ - [Installation](#installation)
+ - [Usage](#usage)
+ - [Contributing](#contributing)
+ - [License](#license)
+ - [Tests](#tests)
+ - [Questions](#questions)
 
+ ## Made Using:
+ * Node.js
+        - New NPM packages: day.js and express-validator
+ * Express
+ * Sequelize
+ * Sessions
+ * Handlebars
 
-```
-  
-## Description 
-  
-``` 
+ ## Installation
+ * To install locally, clone the repository from GitHub, run npm i to install all packages, and create the database.  Database can be created by entering 'mysql -u root -p' into the command line, and then entering password when prompted - and fill out .env file.  If mysql username isn't root, change username in above command.  Once mysql is running, type 'source db/schema.sql' to create the db and then quit mysql.  From the command line, run 'npm start' to run the server, and application can be launched locally using localhost.
 
-```
+ ## Usage
+ * This can be used as a way to keep track of expenses, both unpaid and paid.
 
-  
-## Table of Contents
-- [User Story](#user-story)
-- [Motivation](#Motivation)
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-- [Usage](#usage)
+ ## Contributing
+ * No outside contributions at this time.
+ * This project was created by Ryan Podolski, Josh Klein, Mohamed Behnas, and Zach Burkhart.
 
-## Installation
- 
-`npm install express sequelize mysql2`
+ ## License
+ * MIT License
 
-`npm install dotenv`
+ [Click here for more license info!](https://choosealicense.com/licenses/mit/)
 
-`npm install bcrypt`
+ ## Tests
+ * After following installation instructions (or viewing app using deployed URL), tests can be run by registering on the site as a user, and then entering expenses, and marking them as paid, unpaid, and deleting them.
 
-`npm install express-handlebars`
+ ## Questions
+ * Send an email to rdpodols@gmail.com with any questions.
 
-`npm install express-session`
+ ## Link to Project & Screenshot
+Link to deployed application: https://fast-plains-66827.herokuapp.com/
 
-`npm install connect-session-sequelize`
+![expense-tracker Screenshot)](/assets/images/applicationImage1.png)
+[Click here to view the project!](https://fast-plains-66827.herokuapp.com/)
 
-
-## Usage   
-  
-Run the following command at the root of your project and answer the prompted questions:
-
-`mysql -u root -p`
-
-Enter PW when promted
-
-`source db/schema.sql`
-
-`quit`
-
-`npm run seed`
-  
-`npm start`
-
-## Future Development Plans :
-<b>Future enhancements to this app include:</b>
-
- ```
- 
- 
- ```
-
-
-## Contribution
-<b>this project is made by :</b>
-- Rayan Podolski
-- Josh klein
-- zach Burkhart
-- Mohamed Behnas 
 
 
