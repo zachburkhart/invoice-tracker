@@ -69,6 +69,12 @@ body, html {
     color: white;
     padding: 5px 25px ;
   }
+  .btn-delete {
+    width: auto;
+    background-color: red;
+    color: white;
+    padding: 5px 25px ;
+  }
 
   .padding {
     margin-top: 5%;

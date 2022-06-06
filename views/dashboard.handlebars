@@ -18,17 +18,19 @@
             <label for="expense-amount">Amount</label>
             <input type="text" id="expense-amount" name="expense-amount">
         </div>
-        <button type="submit" class="btn">Add</button>
+        <button type="submit" class="btn btn-success">Add</button>
     </form>
 </section>
 <section >
-    <h2>Current Expenses</h2>
+    <hr>
+    <h2 class="font-weight-bold">Current Expenses</h2>
+    <hr>
    <div class="container">
         <div class="row">
-           <span name="expense-title" class="m-2 col-2">Title</span>
-            <span name="expense-description" class="m-2 col-3">Description</span>
-            <span name="expense-date-due" class="m-2 col-1">Due</span>
-            <span name="expense-value" class="m-2 col-4">Value</span>
+           <span name="expense-title" class="m-2 col-2 font-weight-bold">Title</span>
+            <span name="expense-description" class="m-2 col-3 font-weight-bold">Description</span>
+            <span name="expense-date-due" class="m-2 col-2 font-weight-bold">Due</span>
+            <span name="expense-value" class="m-2 col-4 font-weight-bold">Value</span>
         </div>     
     {{#if expenses.length}}
     <div class="container">
@@ -36,24 +38,27 @@
         <div class="row">
             <span name="expense-title" class="m-2 col-2">{{expense.title}}</span>
             <span name="expense-description" class="m-2 col-3">{{expense.description}}</span>
-            <span name="expense-date-due" class="m-2 col-1">{{format_date date_due}}</span>
+            <span name="expense-date-due" class="m-2 col-2">{{format_date date_due}}</span>
             <span name="expense-value" class="m-2 col-1">${{expense.expense_value}}</span>
             <button type="button" class="m-2 col-1 btn btn-success btn-sm paid-post-btn" id="{{expense.id}}" data="{{expense}}">Paid</button>
-            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{expense.id}}">Delete</button>
+            <button type="button" class="m-2 col-1 btn-delete btn-warning btn-sm delete-post-btn" id="{{expense.id}}">Delete</button>
         </div>
+        <hr>
         {{/each}}
-        <h3>Total Due: ${{totalDue}}</h3>
+        <h3 class="font-weight-bold">Total Due: ${{totalDue}}</h3>
    {{/if}}
 </section>
 
 <section>
-    <h2>Paid Expenses</h2>
+    <hr>
+    <h2 class="font-weight-bold">Paid Expenses</h2>
+    <hr>
    <div class="container">
         <div class="row">
-            <span name="paid-expense-title" class="m-2 col-2">Title</span>
-            <span name="paid-expense-description" class="m-2 col-3">Description</span>
-            <span name="paid-expense-paid-date" class="m-2 col-1">Date Paid</span>
-            <span name="paid-expense-value" class="m-2 col-1">Value</span>
+            <span name="paid-expense-title" class="m-2 col-2 font-weight-bold">Title</span>
+            <span name="paid-expense-description" class="m-2 col-3 font-weight-bold">Description</span>
+            <span name="paid-expense-paid-date" class="m-2 col-2 font-weight-bold">Date Paid</span>
+            <span name="paid-expense-value" class="m-2 col-1 font-weight-bold">Value</span>
         </div>     
     {{#if paidExpenses.length}}
     <div class="container">
@@ -61,13 +66,14 @@
         <div class="row">
             <span name="paid-expense-title" class="m-2 col-2">{{paidExpense.title}}</span>
             <span name="paid-expense-description" class="m-2 col-3">{{paidExpense.description}}</span>
-            <span name="paid-expense-date-due" class="m-2 col-1">{{format_date date_paid}}</span>
+            <span name="paid-expense-date-due" class="m-2 col-2">{{format_date date_paid}}</span>
             <span name="paid-expense-value" class="m-2 col-1">${{paidExpense.expense_value}}</span>
-            <button type="button" class="m-2 col-1 btn btn-danger btn-sm notpaid-post-btn" id="{{paidExpense.id}}" data="{{paidExpense}}">Not Paid</button>
-            <button type="button" class="m-2 col-1 btn btn-warning btn-sm delete-post-btn" id="{{paidExpense.id}}">Delete</button>
+            <button type="button" class="m-2 col-1 btn btn-success btn-sm notpaid-post-btn" id="{{paidExpense.id}}" data="{{paidExpense}}">Not Paid</button>
+            <button type="button" class="m-2 col-1 btn-delete btn-warning btn-sm delete-post-btn" id="{{paidExpense.id}}">Delete</button>
         </div>
+        <hr>
         {{/each}}
-        <h3>Total Paid: ${{totalPaid}}</h3>
+        <h3 class="font-weight-bold">Total Paid: ${{totalPaid}}</h3>
    {{/if}}
 </section>
 
